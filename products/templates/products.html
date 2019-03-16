@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD in Python using Django Framework</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<div class="container">
+
+<body>
+<h3 class="h3" align="center">
+    Lynford Lagondi CRUD Operation in Python using Django Framework
+</h3>
+<h2 class="h2">List of products</h2>
+
+        <table class="table table-triped table-bordered">
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+            {% for products in products %}
+               <tr>
+                    <td><a href="{% url 'update_product' products.id %}">{{products.description}}</a></td>
+                    <td><a href="{% url 'update_product' products.id %}">{{products.price}}</a></td>
+                    <td>
+                        <a class="btn btn-danger" href="{% url 'delete_product' products.id %}">Delete</a>
+                        <a class="btn btn-success" href="{% url 'update_product' products.id %}">Edit</a>
+                    </td>
+
+               </tr>
+
+              {% endfor %}
+        </table>
+    <a class="btn btn-dark" href="{% url 'create_products' %}">Add Product</a>
+</body>
+</div>
+</html>
